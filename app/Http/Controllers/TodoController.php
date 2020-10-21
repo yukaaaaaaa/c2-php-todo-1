@@ -14,8 +14,9 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todo_list = Todo::all();
-        return view('todo/index', compact('todo_list'));
+        $todo_list = Todo::paginate(5);
+        \Log::info($todo_list);
+        return view('todo/index', compact('todo_list' ));
     }
 
     /**
