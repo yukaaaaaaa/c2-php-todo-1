@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Todo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
+     // ページネーションの件数
+     private const PAGE_SIZE = 5;
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todo_list = Todo::paginate(5);
+        $todo_list = Auth::user()->todos()->paginate(self::PAGE_SIZE);
         \Log::info($todo_list);
         return view('todo/index', compact('todo_list' ));
     }
