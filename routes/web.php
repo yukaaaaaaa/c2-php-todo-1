@@ -1,7 +1,5 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,13 +10,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', 'HomeController@index')->name('home');
-
 Auth::routes();
 
 Route::group(['middleware' => ['web', 'auth']], function () {
     Route::resource('todo', 'TodoController', ['only' => [
-        'index', 'create','show'
+        'index', 'show'
+        'index', 'create', 'show'
     ]]);
 });
