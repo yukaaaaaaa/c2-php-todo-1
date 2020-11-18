@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
         <div class="col-md-10">
             <h2 class="text-muted py-3">Todo 編集</h2>
