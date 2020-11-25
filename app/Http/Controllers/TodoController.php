@@ -89,13 +89,15 @@ class TodoController extends Controller
         $todo = Auth::user()->todos()->findOrFail($id);
         $todo->title = $request->title;
         $todo->due_date = $request->due_date;
-        $todo->status = Todo::STATUS_NOT_YET;
+        // $todo->status = Todo::STATUS_NOT_YET;
         $todo->save();
         
-        Auth::user()->todos()->save($todo);
-        return redirect()->to('/todo');
+        // Auth::user()->todos()->save($todo);
+        // return redirect()->to('/todo');
+        return redirect()->to("/todo/".$todo->id);
     }
 
+    
     /**
      * Remove the specified resource from storage.
      *
