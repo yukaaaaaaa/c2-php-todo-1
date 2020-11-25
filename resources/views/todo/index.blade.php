@@ -23,9 +23,18 @@
                             </a>
                         </td>
                         <td>{{ $todo->due_date }}</td>
-                        <th>
+                        <td>
                             <a href="/todo/{{ $todo->id }}/edit" class="btn btn-success"><i class="fas fa-edit mr-2"></i>編集</a>
-                        </th>
+                        </td>
+                        <td>
+                        <form action="/todo/{{ $todo->id }}edit"method="POST">
+                        @method('DELETE')
+                        @csrf
+                            <button class="btn btn-danger" type="submit">
+                            <i class="fas fa-trash-alt mr-2"></i>削除</a>
+                            </button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
